@@ -1,26 +1,37 @@
-# PERSONAL-PORTFOLIO-WEBPAGE
+# Portfolio
 
-*Description*  :- 
-TASK-3 :- PERSONAL PORTFOLIO WEBPAGE which i cerate using HTML, CSS, JS, the website will landing web page or one page website. 
+A Personal Portfolio Website showcasing projects, skills, and achievements with a modern and responsive design. Built to highlight professional experience, technical expertise, and provide easy contact options.
 
- - First will be HOME page with my Photo & Name. 
- - Second page is ABOUT ME describe about my educational life.
- - Third will be SKILLS which i learn or having normal understanding.
- - Forth page was PROJECTS...i create between study of web Developement.
- - Fifth page is CONTACT page show all my contact details.
+## About
 
+- Name : Vivek U. Jagtap
+- Role : Full Stack Web Developer / MERN Developer / Student of CSE
+- Short bio : [A one- or two-sentence summary about your background and goals]
 
-*OUTPUT* :- 
+## Sections
 
-![Image](https://github.com/user-attachments/assets/1dd1f63c-e8f7-4fa8-8811-4ecc3823f48d)
+- Home — Landing section with photo and name
+- About — Background, education, and summary
+- Skills — Technologies and tools you're familiar with
+- Projects — Selected projects and brief descriptions
+- Contact — Contact details and links
 
-![Image](https://github.com/user-attachments/assets/2696c92f-256b-4a2e-aaab-0a7d08d1b445)
+## Preview
 
-![Image](https://github.com/user-attachments/assets/98c33eb7-5d96-45a2-96ba-3a216a783d57)
+![Screenshot 1](https://github.com/user-attachments/assets/1dd1f63c-e8f7-4fa8-8811-4ecc3823f48d)
+![Screenshot 2](https://github.com/user-attachments/assets/2696c92f-256b-4a2e-aaab-0a7d08d1b445)
+![Screenshot 3](https://github.com/user-attachments/assets/98c33eb7-5d96-45a2-96ba-3a216a783d57)
+![Screenshot 4](https://github.com/user-attachments/assets/43291d76-55d1-48c4-8fdd-b1a63bf408f0)
+![Screenshot 5](https://github.com/user-attachments/assets/c5db7078-dc96-40cb-ac84-7441693b6ebe)
 
-![Image](https://github.com/user-attachments/assets/43291d76-55d1-48c4-8fdd-b1a63bf408f0)
+## Built With
 
-![Image](https://github.com/user-attachments/assets/c5db7078-dc96-40cb-ac84-7441693b6ebe)
+- HTML
+- CSS
+- JavaScript
 
+## Contact
 
-
+- Email: jagtap24vivek@gmail.com
+- LinkedIn: https://www.linkedin.com/in/vivek-jagtap-532a41298/
+- GitHub: https://github.com/J24vivek
