@@ -4,9 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var navList = document.querySelector("nav .nav-list ul");
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var body = document.body;
-    var certificateModal = document.getElementById("certificate-modal");
-    var certificateModalImage = document.getElementById("certificate-modal-image");
-    var certificateModalTitle = document.getElementById("certificate-modal-title");
+    var certificatePreviewImage = document.getElementById("certificate-preview-image");
+    var certificatePreviewTitle = document.getElementById("certificate-preview-title");
+    var showMoreBtn = document.getElementById("show-more-certificates");
+    var filterBtns = document.querySelectorAll(".filter-btn");
+    var projectCards = document.querySelectorAll(".project-card");
 
     if (menuBtn && navList) {
         menuBtn.addEventListener("click", function () {
@@ -60,55 +62,58 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function closeCertificateModal() {
-        if (!certificateModal) {
-            return;
-        }
-
-        certificateModal.classList.remove("is-open");
-        certificateModal.setAttribute("aria-hidden", "true");
-        if (body) {
-            body.style.overflow = "";
-        }
+    // Set Figma certificate as active by default
+    var figmaCertificateBtn = document.querySelector('.certificate-trigger[data-image="Figma.png"]');
+    if (figmaCertificateBtn) {
+        figmaCertificateBtn.classList.add("is-active");
     }
 
     document.querySelectorAll(".certificate-trigger").forEach(function (button) {
         button.addEventListener("click", function () {
-            if (!certificateModal || !certificateModalImage || !certificateModalTitle) {
+            if (!certificatePreviewImage || !certificatePreviewTitle) {
                 return;
             }
+
+            // Remove active class from all buttons
+            document.querySelectorAll(".certificate-trigger").forEach(function (btn) {
+                btn.classList.remove("is-active");
+            });
+
+            // Add active class to clicked button
+            this.classList.add("is-active");
 
             var imagePath = this.getAttribute("data-image");
             var title = this.getAttribute("data-title") || "Certificate Preview";
 
-            certificateModalImage.src = imagePath;
-            certificateModalImage.alt = title;
-            certificateModalTitle.textContent = title;
-            certificateModal.classList.add("is-open");
-            certificateModal.setAttribute("aria-hidden", "false");
-
-            if (body) {
-                body.style.overflow = "hidden";
-            }
+            certificatePreviewImage.src = imagePath;
+            certificatePreviewImage.alt = title;
+            certificatePreviewImage.classList.add("has-image");
+            certificatePreviewTitle.textContent = title;
         });
     });
 
-    document.querySelectorAll("[data-close-certificate]").forEach(function (element) {
-        element.addEventListener("click", closeCertificateModal);
-    });
+    // Show more button logic
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener("click", function () {
+            // Show all hidden certificates
+            document.querySelectorAll(".hidden-certificate").forEach(function (cert) {
+                // Show the certificate
+                cert.classList.add("show-certificate");
+                // Add scroll reveal visible state
+                cert.classList.add("is-visible");
+            });
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            closeCertificateModal();
-        }
-    });
+            // Hide the show more button
+            this.classList.add("is-hidden");
+        });
+    }
 
     var revealGroups = [
         { selector: "section:not(#home)", variant: "" },
-        { selector: ".about-info, .contact-info, .skill-badges-image, .resume-column:first-child", variant: "scroll-reveal-left" },
-        { selector: ".education-cards, .resume-column:last-child, .contact-form, .skill-badges-content", variant: "scroll-reveal-right" },
-        { selector: ".section-header, .resume-header", variant: "" },
-        { selector: ".edu-card, .skill-card, .project-card, .badge-section, .info-item", variant: "scroll-reveal-zoom" }
+        { selector: ".about-info, .contact-info, .skill-badges-image, .resume-column:first-child, .certifications-left", variant: "scroll-reveal-left" },
+        { selector: ".education-cards, .resume-column:last-child, .contact-form, .skill-badges-content, .certifications-right", variant: "scroll-reveal-right" },
+        { selector: ".section-header, .resume-header, .projects-header", variant: "" },
+        { selector: ".edu-card, .skill-card, .project-card, .badge-section, .info-item, .certificate-trigger, .show-more-btn, .filter-btn", variant: "scroll-reveal-zoom" }
     ];
 
     revealGroups.forEach(function (group) {
@@ -121,6 +126,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
             var delayClass = "scroll-delay-" + ((index % 3) + 1);
             element.classList.add(delayClass);
+        });
+    });
+
+    // Projects filter function
+    function filterProjects(filterType) {
+        projectCards.forEach(function(card) {
+            card.classList.remove("visible");
+        });
+
+        var filteredCards = [];
+        if (filterType === "major") {
+            // Major projects: Personal Portfolio, Amazon Clone, VK Teach Platform
+            filteredCards = Array.from(projectCards).filter(function(card) {
+                var title = card.querySelector("h4").textContent.trim();
+                return title === "Personal Portfolio" || title === "Amazon Clone" || title === "VK Teach Platform";
+            });
+        } else {
+            // Basic projects: the other two
+            filteredCards = Array.from(projectCards).filter(function(card) {
+                var title = card.querySelector("h4").textContent.trim();
+                return title === "HTML Page" || title === "Fun Games" || title === "VK Teach";
+            });
+        }
+
+        // Show only the first 3
+        filteredCards.slice(0, 3).forEach(function(card) {
+            card.classList.add("visible");
+        });
+    }
+
+    // Initialize filter with major projects
+    filterProjects("major");
+
+    // Add click event listeners to filter buttons
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(function(b) {
+                b.classList.remove("active");
+            });
+            // Add active class to clicked button
+            this.classList.add("active");
+            // Filter projects
+            var filter = this.getAttribute("data-filter");
+            filterProjects(filter);
         });
     });
 

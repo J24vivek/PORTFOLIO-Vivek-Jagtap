@@ -151,43 +151,59 @@
 
     <section id="certifications" class="certifications">
         <div class="container">
-            <div class="section-header">
-                <h1>Certifications</h1>
-                <p>Click certificate name to view the certificate.</p>
-            </div>
-            <div class="certification-list">
-                <button type="button" class="certificate-trigger" data-image="AICTE Gen_AI Intern.png" data-title="AICTE Gen AI Internship Certificate">
-                    AICTE Gen AI Internship Certificate
-                </button>
-                <button type="button" class="certificate-trigger" data-image="Codtech intern.png" data-title="Codtech Internship Certificate">
-                    Codtech Internship Certificate
-                </button>
-                <button type="button" class="certificate-trigger" data-image="Prodigy Intern.png" data-title="Prodigy Infotech Internship Certificate">
-                    Prodigy Infotech Internship Certificate
-                </button>
-                <button type="button" class="certificate-trigger" data-image="Udemy WEB_D.png" data-title="Udemy Web Development Certificate">
-                    Udemy Web Development Certificate
-                </button>
-                <button type="button" class="certificate-trigger" data-image="WEB_Certificate.png" data-title="Web Development Certificate">
-                    Web Development Certificate
-                </button>
-                <button type="button" class="certificate-trigger" data-image="Figma.png" data-title="Figma Certificate">
-                    Figma Certificate
-                </button>
-                <button type="button" class="certificate-trigger" data-image="PYC.jpg" data-title="Python Certificate">
-                    Python Certificate
-                </button>
+            <div class="certifications-layout">
+                <div class="certifications-left">
+                    <div class="section-header">
+                        <h1>Certifications</h1>
+                    </div>
+                    <div class="certification-list">
+                        <button type="button" class="certificate-trigger" data-image="Figma.png" data-title="Figma Certificate">
+                            Figma Certificate
+                        </button>
+                        <button type="button" class="certificate-trigger" data-image="AICTE Gen_AI Intern.png" data-title="AICTE Gen AI Internship Certificate">
+                            AICTE Gen AI Internship Certificate
+                        </button>
+                        <button type="button" class="certificate-trigger" data-image="Codtech intern.png" data-title="Codtech Internship Certificate">
+                            Codtech Internship Certificate
+                        </button>
+                        <button type="button" class="certificate-trigger" data-image="Prodigy Intern.png" data-title="Prodigy Infotech Internship Certificate">
+                            Prodigy Infotech Internship Certificate
+                        </button>
+                        <button type="button" class="certificate-trigger" data-image="Udemy WEB_D.png" data-title="Udemy Web Development Certificate">
+                            Udemy Web Development Certificate
+                        </button>
+                        <button type="button" class="certificate-trigger hidden-certificate" data-image="WEB_Certificate.png" data-title="Web Development Certificate">
+                            Web Development Certificate
+                        </button>
+                        <button type="button" class="certificate-trigger hidden-certificate" data-image="PYC.jpg" data-title="Python Certificate">
+                            Python Certificate
+                        </button>
+                    </div>
+                    <button type="button" id="show-more-certificates" class="show-more-btn">
+                        Show More
+                    </button>
+                </div>
+                <div class="certifications-right">
+                    <div class="certificate-preview">
+                        <h3 id="certificate-preview-title" class="certificate-preview-title">Figma Certificate</h3>
+                        <img id="certificate-preview-image" src="Figma.png" alt="Figma Certificate" class="certificate-preview-image has-image">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header projects-header">
                 <h1>My Projects</h1>
+                <div class="projects-filter">
+                    <button type="button" class="filter-btn active" data-filter="major">Major</button>
+                    <button type="button" class="filter-btn" data-filter="basic">Basic</button>
+                </div>
             </div>
             <div class="projects-scroll">
-                <div class="project-card">
+                <div class="project-card" data-type="basic">
                     <img src="om.png" alt="HTML Page">
                     <div class="project-info">
                         <h4>HTML Page</h4>
@@ -198,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-type="major">
                     <img src="amazon.png" alt="Amazon Clone">
                     <div class="project-info">
                         <h4>Amazon Clone</h4>
@@ -209,7 +225,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-type="basic">
                     <img src="fungame.png" alt="Fun Games">
                     <div class="project-info">
                         <h4>Fun Games</h4>
@@ -220,7 +236,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-type="major">
                     <img src="vkteach.png" alt="VK Teach">
                     <div class="project-info">
                         <h4>VK Teach</h4>
@@ -231,7 +247,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-type="major">
                     <img src="vivek1vk.png" alt="VK Teach Platform">
                     <div class="project-info">
                         <h4>VK Teach Platform</h4>
@@ -242,7 +258,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-type="major">
                     <img src="portfolio.png" alt="Personal Portfolio">
                     <div class="project-info">
                         <h4>Personal Portfolio</h4>
@@ -252,55 +268,6 @@
                             <a href="#" target="_blank" class="project-link live"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="resume" class="resume">
-        <div class="container">
-            <div class="section-header resume-header">
-                <h1>Resume</h1>
-                <a href="#" class="btn btn-primary">Download Full Resume</a>
-            </div>
-            <div class="resume-content">
-                <div class="resume-column">
-                    <h3>Professional Summary</h3>
-                    <p>Passionate Full Stack Web Developer with experience in creating stunning and user-friendly websites. Skilled in HTML, CSS, JavaScript, and frameworks like Bootstrap. Eager to contribute to innovative projects and grow in the tech industry.</p>
-                    
-                    <h3>Education</h3>
-                    <ul>
-                        <li><strong>Engineering (CS)</strong> - PES Modern College, Pune (2022-2026)</li>
-                        <li><strong>11-12th</strong> - Fergusson College, Pune</li>
-                        <li><strong>1-10th</strong> - CKT Vidyalaya, Panvel</li>
-                    </ul>
-                    
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Frontend: HTML, CSS, JavaScript, Bootstrap, React.js, Redux Toolkit</li>
-                        <li>Backend: Node.js, Express</li>
-                        <li>Database: MongoDB, MySQL</li>
-                        <li>Programming: Java, Data Structures & Algorithms</li>
-                        <li>Tools: Git, VS Code, Postman</li>
-                    </ul>
-                </div>
-                <div class="resume-column">
-                    <h3>Experience</h3>
-                    <p>Currently pursuing engineering while building personal projects and learning new technologies. Internships and freelance work in web development.</p>
-                    
-                    <h3>Internships</h3>
-                    <ul>
-                        <li><strong>Web Developer Intern</strong> - CODTECH IT</li>
-                        <li><strong>Full Stack Web Developer Intern</strong> - PRODIGY Infotech</li>
-                    </ul>
-
-                    <h3>Projects</h3>
-                    <ul>
-                        <li><strong>Personal Portfolio Website</strong> - Created a responsive and user-friendly portfolio website to showcase my skills and projects.</li>
-                        <li><strong>E-Learning Platform</strong> - Developed a web application for online learning, including course management, user authentication, and interactive features.</li>
-                        <li><strong>API based project</strong> - Implemented a RESTful API for a web application, enabling communication between the frontend and backend.</li>
-                        <li><strong>Hiring EMS</strong> - Developed a web application for managing the hiring process, including job posting, candidate tracking, and interview scheduling.</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -364,16 +331,7 @@
 
 
 
-    <div id="certificate-modal" class="certificate-modal" aria-hidden="true">
-        <div class="certificate-modal-backdrop" data-close-certificate></div>
-        <div class="certificate-modal-content" role="dialog" aria-modal="true" aria-labelledby="certificate-modal-title">
-            <button type="button" class="certificate-modal-close" aria-label="Close certificate preview" data-close-certificate>
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 id="certificate-modal-title">Certificate Preview</h3>
-            <img id="certificate-modal-image" src="" alt="Certificate preview">
-        </div>
-    </div>
+
 
     <script src="main.js"></script>
 </body>
